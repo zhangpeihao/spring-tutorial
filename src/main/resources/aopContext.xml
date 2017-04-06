@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="obj" class="com.zph.demo.aop.springaop.A"></bean>
+    <bean id="ba" class="com.zph.demo.aop.springaop.BeforeAdvisor"></bean>
+    <bean id="aa" class="com.zph.demo.aop.springaop.AfterAdvisor"></bean>
+    <bean id="ara" class="com.zph.demo.aop.springaop.AroundAdvisor"></bean>
+
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="obj"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>ba</value>
+                <value>aa</value>
+                <value>ara</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="objv" class="com.zph.demo.aop.springaop.Validator"></bean>
+    <bean id="ta" class="com.zph.demo.aop.springaop.ThrowsAdvisor"></bean>
+    <bean id="proxyv" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="objv"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>ta</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="studentbean" class="com.zph.demo.javapoint.di.Student">
+        <property name="name" value="Vimal Jaiswal"></property>
+    </bean>
+
+    <bean id="e" class="com.zph.demo.javapoint.di.constructor.Employee">
+        <constructor-arg value="10" type="int"></constructor-arg>
+    </bean>
+    <bean id="e1" class="com.zph.demo.javapoint.di.constructor.Employee">
+        <constructor-arg value="10"></constructor-arg>
+    </bean>
+    <bean id="e2" class="com.zph.demo.javapoint.di.constructor.Employee">
+        <constructor-arg value="zph"></constructor-arg>
+    </bean>
+    <bean id="e3" class="com.zph.demo.javapoint.di.constructor.Employee">
+        <constructor-arg value="10" type="int" ></constructor-arg>
+        <constructor-arg value="Sonoo"></constructor-arg>
+    </bean>
+
+    <bean id="a1" class="com.zph.demo.javapoint.di.constructor.Address">
+        <constructor-arg value="ghaziabad"></constructor-arg>
+        <constructor-arg value="UP"></constructor-arg>
+        <constructor-arg value="India"></constructor-arg>
+    </bean>
+
+    <bean id="ea" class="com.zph.demo.javapoint.di.constructor.Employee">
+        <constructor-arg value="12" type="int"></constructor-arg>
+        <constructor-arg value="zph"></constructor-arg>
+        <constructor-arg>
+            <ref bean="a1"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="obj" class="com.zph.demo.javapoint.di.si.Employee">
+        <property name="id">
+            <value>20</value>
+        </property>
+        <property name="name">
+            <value>zph</value>
+        </property>
+        <property name="city">
+            <value>shanghai</value>
+        </property>
+    </bean>
+
+    <bean id="fa" class="com.zph.demo.javapoint.di.factory.A" factory-method="getA"></bean>
+
+    <bean id="p" class="com.zph.demo.javapoint.di.printable.PrintableFactory" factory-method="getPrintable"></bean>
+</beans>
